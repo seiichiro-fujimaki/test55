@@ -1,0 +1,739 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "amplify-test55-trust-sandbox-5f9006c4ad": {
+        "id": "amplify-test55-trust-sandbox-5f9006c4ad",
+        "path": "amplify-test55-trust-sandbox-5f9006c4ad",
+        "children": {
+          "deploymentType": {
+            "id": "deploymentType",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/deploymentType",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "region": {
+            "id": "region",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/region",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "auth": {
+            "id": "auth",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth",
+            "children": {
+              "amplifyAuth": {
+                "id": "amplifyAuth",
+                "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth",
+                "children": {
+                  "UserPool": {
+                    "id": "UserPool",
+                    "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/UserPool",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/UserPool/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Cognito::UserPool",
+                          "aws:cdk:cloudformation:props": {
+                            "accountRecoverySetting": {
+                              "recoveryMechanisms": [
+                                {
+                                  "name": "verified_email",
+                                  "priority": 1
+                                }
+                              ]
+                            },
+                            "adminCreateUserConfig": {
+                              "allowAdminCreateUserOnly": false
+                            },
+                            "autoVerifiedAttributes": [
+                              "email"
+                            ],
+                            "emailVerificationMessage": "The verification code to your new account is {####}",
+                            "emailVerificationSubject": "Verify your new account",
+                            "policies": {
+                              "passwordPolicy": {
+                                "minimumLength": 8,
+                                "requireLowercase": true,
+                                "requireUppercase": true,
+                                "requireNumbers": true,
+                                "requireSymbols": true
+                              }
+                            },
+                            "schema": [
+                              {
+                                "name": "email",
+                                "mutable": true,
+                                "required": true
+                              }
+                            ],
+                            "smsVerificationMessage": "The verification code to your new account is {####}",
+                            "userPoolTags": {
+                              "amplify:deployment-type": "sandbox",
+                              "amplify:friendly-name": "amplifyAuth",
+                              "created-by": "amplify"
+                            },
+                            "userAttributeUpdateSettings": {
+                              "attributesRequireVerificationBeforeUpdate": [
+                                "email"
+                              ]
+                            },
+                            "usernameAttributes": [
+                              "email"
+                            ],
+                            "usernameConfiguration": {
+                              "caseSensitive": false
+                            },
+                            "verificationMessageTemplate": {
+                              "defaultEmailOption": "CONFIRM_WITH_CODE",
+                              "emailMessage": "The verification code to your new account is {####}",
+                              "emailSubject": "Verify your new account",
+                              "smsMessage": "The verification code to your new account is {####}"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_cognito.CfnUserPool",
+                          "version": "2.171.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cognito.UserPool",
+                      "version": "2.171.1"
+                    }
+                  },
+                  "UserPoolAppClient": {
+                    "id": "UserPoolAppClient",
+                    "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/UserPoolAppClient",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/UserPoolAppClient/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Cognito::UserPoolClient",
+                          "aws:cdk:cloudformation:props": {
+                            "allowedOAuthFlows": [
+                              "code"
+                            ],
+                            "allowedOAuthFlowsUserPoolClient": true,
+                            "allowedOAuthScopes": [
+                              "profile",
+                              "phone",
+                              "email",
+                              "openid",
+                              "aws.cognito.signin.user.admin"
+                            ],
+                            "callbackUrLs": [
+                              "https://example.com"
+                            ],
+                            "explicitAuthFlows": [
+                              "ALLOW_CUSTOM_AUTH",
+                              "ALLOW_USER_SRP_AUTH",
+                              "ALLOW_REFRESH_TOKEN_AUTH"
+                            ],
+                            "preventUserExistenceErrors": "ENABLED",
+                            "supportedIdentityProviders": [
+                              "COGNITO"
+                            ],
+                            "userPoolId": {
+                              "Ref": "amplifyAuthUserPool4BA7F805"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_cognito.CfnUserPoolClient",
+                          "version": "2.171.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cognito.UserPoolClient",
+                      "version": "2.171.1"
+                    }
+                  },
+                  "IdentityPool": {
+                    "id": "IdentityPool",
+                    "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/IdentityPool",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Cognito::IdentityPool",
+                      "aws:cdk:cloudformation:props": {
+                        "allowUnauthenticatedIdentities": true,
+                        "identityPoolTags": [
+                          {
+                            "key": "amplify:deployment-type",
+                            "value": "sandbox"
+                          },
+                          {
+                            "key": "amplify:friendly-name",
+                            "value": "amplifyAuth"
+                          },
+                          {
+                            "key": "created-by",
+                            "value": "amplify"
+                          }
+                        ],
+                        "cognitoIdentityProviders": [
+                          {
+                            "clientId": {
+                              "Ref": "amplifyAuthUserPoolAppClient2626C6F8"
+                            },
+                            "providerName": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "cognito-idp.",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  },
+                                  ".amazonaws.com/",
+                                  {
+                                    "Ref": "amplifyAuthUserPool4BA7F805"
+                                  }
+                                ]
+                              ]
+                            }
+                          }
+                        ],
+                        "supportedLoginProviders": {}
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cognito.CfnIdentityPool",
+                      "version": "2.171.1"
+                    }
+                  },
+                  "authenticatedUserRole": {
+                    "id": "authenticatedUserRole",
+                    "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/authenticatedUserRole",
+                    "children": {
+                      "ImportauthenticatedUserRole": {
+                        "id": "ImportauthenticatedUserRole",
+                        "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/authenticatedUserRole/ImportauthenticatedUserRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.171.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/authenticatedUserRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRoleWithWebIdentity",
+                                  "Condition": {
+                                    "StringEquals": {
+                                      "cognito-identity.amazonaws.com:aud": {
+                                        "Ref": "amplifyAuthIdentityPool3FDE84CC"
+                                      }
+                                    },
+                                    "ForAnyValue:StringLike": {
+                                      "cognito-identity.amazonaws.com:amr": "authenticated"
+                                    }
+                                  },
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Federated": "cognito-identity.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "tags": [
+                              {
+                                "key": "amplify:deployment-type",
+                                "value": "sandbox"
+                              },
+                              {
+                                "key": "amplify:friendly-name",
+                                "value": "amplifyAuth"
+                              },
+                              {
+                                "key": "created-by",
+                                "value": "amplify"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.171.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.171.1"
+                    }
+                  },
+                  "unauthenticatedUserRole": {
+                    "id": "unauthenticatedUserRole",
+                    "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/unauthenticatedUserRole",
+                    "children": {
+                      "ImportunauthenticatedUserRole": {
+                        "id": "ImportunauthenticatedUserRole",
+                        "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/unauthenticatedUserRole/ImportunauthenticatedUserRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.171.1"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/unauthenticatedUserRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRoleWithWebIdentity",
+                                  "Condition": {
+                                    "StringEquals": {
+                                      "cognito-identity.amazonaws.com:aud": {
+                                        "Ref": "amplifyAuthIdentityPool3FDE84CC"
+                                      }
+                                    },
+                                    "ForAnyValue:StringLike": {
+                                      "cognito-identity.amazonaws.com:amr": "unauthenticated"
+                                    }
+                                  },
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Federated": "cognito-identity.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "tags": [
+                              {
+                                "key": "amplify:deployment-type",
+                                "value": "sandbox"
+                              },
+                              {
+                                "key": "amplify:friendly-name",
+                                "value": "amplifyAuth"
+                              },
+                              {
+                                "key": "created-by",
+                                "value": "amplify"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.171.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.171.1"
+                    }
+                  },
+                  "IdentityPoolRoleAttachment": {
+                    "id": "IdentityPoolRoleAttachment",
+                    "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/IdentityPoolRoleAttachment",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Cognito::IdentityPoolRoleAttachment",
+                      "aws:cdk:cloudformation:props": {
+                        "identityPoolId": {
+                          "Ref": "amplifyAuthIdentityPool3FDE84CC"
+                        },
+                        "roleMappings": {
+                          "UserPoolWebClientRoleMapping": {
+                            "type": "Token",
+                            "ambiguousRoleResolution": "AuthenticatedRole",
+                            "identityProvider": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "cognito-idp.",
+                                  {
+                                    "Ref": "AWS::Region"
+                                  },
+                                  ".amazonaws.com/",
+                                  {
+                                    "Ref": "amplifyAuthUserPool4BA7F805"
+                                  },
+                                  ":",
+                                  {
+                                    "Ref": "amplifyAuthUserPoolAppClient2626C6F8"
+                                  }
+                                ]
+                              ]
+                            }
+                          }
+                        },
+                        "roles": {
+                          "unauthenticated": {
+                            "Fn::GetAtt": [
+                              "amplifyAuthunauthenticatedUserRole2B524D9E",
+                              "Arn"
+                            ]
+                          },
+                          "authenticated": {
+                            "Fn::GetAtt": [
+                              "amplifyAuthauthenticatedUserRoleD8DA3689",
+                              "Arn"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
+                      "version": "2.171.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.4.2"
+                }
+              },
+              "CDKMetadata": {
+                "id": "CDKMetadata",
+                "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/CDKMetadata",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/CDKMetadata/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.171.1"
+                    }
+                  },
+                  "Condition": {
+                    "id": "Condition",
+                    "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/CDKMetadata/Condition",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnCondition",
+                      "version": "2.171.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "constructs.Construct",
+                  "version": "10.4.2"
+                }
+              },
+              "amplifytest55trustsandbox5f9006c4adauthamplifyAuthUserPoolDC9BEACDRef": {
+                "id": "amplifytest55trustsandbox5f9006c4adauthamplifyAuthUserPoolDC9BEACDRef",
+                "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifytest55trustsandbox5f9006c4adauthamplifyAuthUserPoolDC9BEACDRef",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.171.1"
+                }
+              },
+              "amplifytest55trustsandbox5f9006c4adauthamplifyAuthUserPoolAppClient1AC87A10Ref": {
+                "id": "amplifytest55trustsandbox5f9006c4adauthamplifyAuthUserPoolAppClient1AC87A10Ref",
+                "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifytest55trustsandbox5f9006c4adauthamplifyAuthUserPoolAppClient1AC87A10Ref",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.171.1"
+                }
+              },
+              "amplifytest55trustsandbox5f9006c4adauthamplifyAuthIdentityPoolBFE00E26Ref": {
+                "id": "amplifytest55trustsandbox5f9006c4adauthamplifyAuthIdentityPoolBFE00E26Ref",
+                "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifytest55trustsandbox5f9006c4adauthamplifyAuthIdentityPoolBFE00E26Ref",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.171.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.NestedStack",
+              "version": "2.171.1"
+            }
+          },
+          "auth.NestedStack": {
+            "id": "auth.NestedStack",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth.NestedStack",
+            "children": {
+              "auth.NestedStackResource": {
+                "id": "auth.NestedStackResource",
+                "path": "amplify-test55-trust-sandbox-5f9006c4ad/auth.NestedStack/auth.NestedStackResource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudFormation::Stack",
+                  "aws:cdk:cloudformation:props": {
+                    "tags": [
+                      {
+                        "key": "amplify:deployment-type",
+                        "value": "sandbox"
+                      },
+                      {
+                        "key": "created-by",
+                        "value": "amplify"
+                      }
+                    ],
+                    "templateUrl": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "https://s3.",
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          ".",
+                          {
+                            "Ref": "AWS::URLSuffix"
+                          },
+                          "/",
+                          {
+                            "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                          },
+                          "/caafca61743d5eb415882ffae0a0496f29da1e3b909f0ff67bd81b4640904969.json"
+                        ]
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnStack",
+                  "version": "2.171.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.4.2"
+            }
+          },
+          "userPoolId": {
+            "id": "userPoolId",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/userPoolId",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "webClientId": {
+            "id": "webClientId",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/webClientId",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "identityPoolId": {
+            "id": "identityPoolId",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/identityPoolId",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "authRegion": {
+            "id": "authRegion",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/authRegion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "allowUnauthenticatedIdentities": {
+            "id": "allowUnauthenticatedIdentities",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/allowUnauthenticatedIdentities",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "signupAttributes": {
+            "id": "signupAttributes",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/signupAttributes",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "usernameAttributes": {
+            "id": "usernameAttributes",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/usernameAttributes",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "verificationMechanisms": {
+            "id": "verificationMechanisms",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/verificationMechanisms",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "passwordPolicyMinLength": {
+            "id": "passwordPolicyMinLength",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/passwordPolicyMinLength",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "passwordPolicyRequirements": {
+            "id": "passwordPolicyRequirements",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/passwordPolicyRequirements",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "mfaConfiguration": {
+            "id": "mfaConfiguration",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/mfaConfiguration",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "mfaTypes": {
+            "id": "mfaTypes",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/mfaTypes",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "socialProviders": {
+            "id": "socialProviders",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/socialProviders",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "oauthCognitoDomain": {
+            "id": "oauthCognitoDomain",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/oauthCognitoDomain",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "oauthScope": {
+            "id": "oauthScope",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/oauthScope",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "oauthRedirectSignIn": {
+            "id": "oauthRedirectSignIn",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/oauthRedirectSignIn",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "oauthRedirectSignOut": {
+            "id": "oauthRedirectSignOut",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/oauthRedirectSignOut",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "oauthResponseType": {
+            "id": "oauthResponseType",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/oauthResponseType",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "oauthClientId": {
+            "id": "oauthClientId",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/oauthClientId",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "groups": {
+            "id": "groups",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/groups",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.171.1"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "amplify-test55-trust-sandbox-5f9006c4ad/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.171.1"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "amplify-test55-trust-sandbox-5f9006c4ad/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnCondition",
+                  "version": "2.171.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.4.2"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.171.1"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "amplify-test55-trust-sandbox-5f9006c4ad/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.171.1"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.171.1"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.4.2"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.171.1"
+    }
+  }
+}
