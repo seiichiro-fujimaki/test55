@@ -32,6 +32,18 @@
     "oauthClientId",
     "groups"
    ]
+  },
+  "AWS::Amplify::Function": {
+   "version": "1",
+   "stackOutputs": [
+    "definedFunctions"
+   ]
+  },
+  "AWS::Amplify::Custom": {
+   "version": "1",
+   "stackOutputs": [
+    "customOutputs"
+   ]
   }
  },
  "Outputs": {
@@ -124,10 +136,114 @@
   },
   "groups": {
    "Value": "[]"
+  },
+  "definedFunctions": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "[\"",
+      {
+       "Fn::GetAtt": [
+        "function1351588B",
+        "Outputs.amplifytest55trustsandbox5f9006c4adfunctionhelloworldlambdaDE8E4471Ref"
+       ]
+      },
+      "\",\"",
+      {
+       "Fn::GetAtt": [
+        "function1351588B",
+        "Outputs.amplifytest55trustsandbox5f9006c4adfunctioninvokebedrocklambda256FE4E5Ref"
+       ]
+      },
+      "\"]"
+     ]
+    ]
+   }
+  },
+  "customOutputs": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "{\"custom\":{\"helloWorldFunctionName\":\"",
+      {
+       "Fn::GetAtt": [
+        "function1351588B",
+        "Outputs.amplifytest55trustsandbox5f9006c4adfunctionhelloworldlambdaDE8E4471Ref"
+       ]
+      },
+      "\",\"invokeBedrockFunctionName\":\"",
+      {
+       "Fn::GetAtt": [
+        "function1351588B",
+        "Outputs.amplifytest55trustsandbox5f9006c4adfunctioninvokebedrocklambda256FE4E5Ref"
+       ]
+      },
+      "\"},\"version\":\"1.3\"}"
+     ]
+    ]
+   }
   }
  },
  "Resources": {
   "auth179371D7": {
+   "Type": "AWS::CloudFormation::Stack",
+   "Properties": {
+    "Parameters": {
+     "referencetoamplifytest55trustsandbox5f9006c4adfunctionNestedStackfunctionNestedStackResource48C30107Outputsamplifytest55trustsandbox5f9006c4adfunctionhelloworldlambdaDE8E4471Arn": {
+      "Fn::GetAtt": [
+       "function1351588B",
+       "Outputs.amplifytest55trustsandbox5f9006c4adfunctionhelloworldlambdaDE8E4471Arn"
+      ]
+     },
+     "referencetoamplifytest55trustsandbox5f9006c4adfunctionNestedStackfunctionNestedStackResource48C30107Outputsamplifytest55trustsandbox5f9006c4adfunctioninvokebedrocklambda256FE4E5Arn": {
+      "Fn::GetAtt": [
+       "function1351588B",
+       "Outputs.amplifytest55trustsandbox5f9006c4adfunctioninvokebedrocklambda256FE4E5Arn"
+      ]
+     }
+    },
+    "Tags": [
+     {
+      "Key": "amplify:deployment-type",
+      "Value": "sandbox"
+     },
+     {
+      "Key": "created-by",
+      "Value": "amplify"
+     }
+    ],
+    "TemplateURL": {
+     "Fn::Join": [
+      "",
+      [
+       "https://s3.",
+       {
+        "Ref": "AWS::Region"
+       },
+       ".",
+       {
+        "Ref": "AWS::URLSuffix"
+       },
+       "/",
+       {
+        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+       },
+       "/66cd9c38111a5f5f43603032f97b0ebfa559524839ff3914d7a8a6d601e27ba8.json"
+      ]
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-test55-trust-sandbox-5f9006c4ad/auth.NestedStack/auth.NestedStackResource",
+    "aws:asset:path": "amplifytest55trustsandbox5f9006c4adauthBBD10F65.nested.template.json",
+    "aws:asset:property": "TemplateURL"
+   }
+  },
+  "function1351588B": {
    "Type": "AWS::CloudFormation::Stack",
    "Properties": {
     "Tags": [
@@ -156,7 +272,7 @@
        {
         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
        },
-       "/caafca61743d5eb415882ffae0a0496f29da1e3b909f0ff67bd81b4640904969.json"
+       "/339166e3106e1e119bc2b372c9b854fe7159854966254c040b466efac5921632.json"
       ]
      ]
     }
@@ -164,8 +280,8 @@
    "UpdateReplacePolicy": "Delete",
    "DeletionPolicy": "Delete",
    "Metadata": {
-    "aws:cdk:path": "amplify-test55-trust-sandbox-5f9006c4ad/auth.NestedStack/auth.NestedStackResource",
-    "aws:asset:path": "amplifytest55trustsandbox5f9006c4adauthBBD10F65.nested.template.json",
+    "aws:cdk:path": "amplify-test55-trust-sandbox-5f9006c4ad/function.NestedStack/function.NestedStackResource",
+    "aws:asset:path": "amplifytest55trustsandbox5f9006c4adfunction2944CD95.nested.template.json",
     "aws:asset:property": "TemplateURL"
    }
   },

@@ -196,6 +196,67 @@
     "aws:cdk:path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/authenticatedUserRole/Resource"
    }
   },
+  "amplifyAuthauthenticatedUserRoleDefaultPolicy82E52873": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Ref": "referencetoamplifytest55trustsandbox5f9006c4adfunctionNestedStackfunctionNestedStackResource48C30107Outputsamplifytest55trustsandbox5f9006c4adfunctionhelloworldlambdaDE8E4471Arn"
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Ref": "referencetoamplifytest55trustsandbox5f9006c4adfunctionNestedStackfunctionNestedStackResource48C30107Outputsamplifytest55trustsandbox5f9006c4adfunctionhelloworldlambdaDE8E4471Arn"
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Ref": "referencetoamplifytest55trustsandbox5f9006c4adfunctionNestedStackfunctionNestedStackResource48C30107Outputsamplifytest55trustsandbox5f9006c4adfunctioninvokebedrocklambda256FE4E5Arn"
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Ref": "referencetoamplifytest55trustsandbox5f9006c4adfunctionNestedStackfunctionNestedStackResource48C30107Outputsamplifytest55trustsandbox5f9006c4adfunctioninvokebedrocklambda256FE4E5Arn"
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "amplifyAuthauthenticatedUserRoleDefaultPolicy82E52873",
+    "Roles": [
+     {
+      "Ref": "amplifyAuthauthenticatedUserRoleD8DA3689"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/amplifyAuth/authenticatedUserRole/DefaultPolicy/Resource"
+   }
+  },
   "amplifyAuthunauthenticatedUserRole2B524D9E": {
    "Type": "AWS::IAM::Role",
    "Properties": {
@@ -301,7 +362,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02LwQ6CQAxEv4X7Ul0ung0nL8ZgPJt1t2oR2oQtEkP23w0hKKd589opwO4s2MwNMffhlTd0g/GIUTGc1fmXcUO8jl4eTCowXiJ2J5HGlHf+8QJlQ8i6Pv3NISAr6WcZr3slDe5VnX+2yJoMuRbGSU6PU6ZkKozSd35WKy6FAykJJ8MSEOq4eRcFWAvbrI5EedezUotQzfkF59H9vfAAAAA="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02LPQ+CMBCGf4t7OS2Ls2FyMQTjbGp76km5S+ghMYT/bpCoTO/zfuVgtxbsyvUp86HOIl1gOGBSDEd1vjauT+fBy41JBYZTwrYUiaa48o+/UERC1mX1T/YBWUlf3/PSVxJxp+r8vUHW0ZBrYJjCafjRUiL512RnGkdTYZKu9fNmwYVwICXh0bAEhEdaP/McrIXN6pGIsrZjpQahmvUNcWJNRQEBAAA="
    },
    "Metadata": {
     "aws:cdk:path": "amplify-test55-trust-sandbox-5f9006c4ad/auth/CDKMetadata/Default"
@@ -573,6 +634,14 @@
      ]
     }
    ]
+  }
+ },
+ "Parameters": {
+  "referencetoamplifytest55trustsandbox5f9006c4adfunctionNestedStackfunctionNestedStackResource48C30107Outputsamplifytest55trustsandbox5f9006c4adfunctionhelloworldlambdaDE8E4471Arn": {
+   "Type": "String"
+  },
+  "referencetoamplifytest55trustsandbox5f9006c4adfunctionNestedStackfunctionNestedStackResource48C30107Outputsamplifytest55trustsandbox5f9006c4adfunctioninvokebedrocklambda256FE4E5Arn": {
+   "Type": "String"
   }
  },
  "Outputs": {
