@@ -9,7 +9,7 @@ function App() {
 
   return (
     <Authenticator>
-    {({ signOut}) => (
+    {({ signOut, user}) => (
     <>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -31,6 +31,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <p>
+            Hello, {user?.signInDetails?.loginId}
+            <br />
+            <button onClick={signOut}>Sign Out</button>
+          </p>
+
     </>
         )}
     </Authenticator>
